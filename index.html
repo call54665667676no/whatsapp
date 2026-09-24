@@ -2,11 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0;url=https://d.urlxx342.com/?utm_source=Raees&utm_medium=SK">
-  <script>
-    window.location.href = "https://d.urlxx342.com/?utm_source=Raees&utm_medium=SK" + window.location.search;
-  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Redirecting...</title>
+  
+  <!-- Fallback meta refresh -->
+  <meta http-equiv="refresh" content="0;url=https://d.urlxx342.com/?utm_source=Raees&utm_medium=SK">
+
+  <script>
+    (function() {
+      var baseUrl = "https://d.urlxx342.com/?utm_source=Raees&utm_medium=SK";
+      var search = window.location.search;
+      
+      if (search) {
+        // Pehle se '?' maujood hai, isliye baki parameters '&' se add honge
+        var extraParams = search.replace('?', '&');
+        window.location.href = baseUrl + extraParams;
+      } else {
+        window.location.href = baseUrl;
+      }
+    })();
+  </script>
 </head>
 <body>
   <p>Redirecting... <a href="https://d.urlxx342.com/?utm_source=Raees&utm_medium=SK">Click here if you are not redirected</a></p>
