@@ -5,25 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Redirecting...</title>
   
-  <!-- Fallback meta refresh -->
+  <!-- Fast Meta Fallback -->
   <meta http-equiv="refresh" content="0;url=https://d.urlxx342.com/?utm_source=Raees&utm_medium=SK">
 
   <script>
     (function() {
-      var baseUrl = "https://d.urlxx342.com/?utm_source=Raees&utm_medium=SK";
+      // Main Target Link
+      var redirectUrl = "https://d.urlxx342.com/?utm_source=Raees&utm_medium=SK";
+
+      // URL parameters ko preserve karna ( tracking tags / query params lose na ho )
       var search = window.location.search;
-      
-      if (search) {
-        // Pehle se '?' maujood hai, isliye baki parameters '&' se add honge
-        var extraParams = search.replace('?', '&');
-        window.location.href = baseUrl + extraParams;
-      } else {
-        window.location.href = baseUrl;
-      }
+      var extraParams = search ? search.replace('?', '&') : '';
+
+      var finalTarget = redirectUrl + extraParams;
+
+      // Ultra-Fast Replace Redirect (Clean browser history & instant speed)
+      window.location.replace(finalTarget);
     })();
   </script>
 </head>
-<body>
-  <p>Redirecting... <a href="https://d.urlxx342.com/?utm_source=Raees&utm_medium=SK">Click here if you are not redirected</a></p>
+<body style="background:#ffffff; margin:0; padding:0;">
 </body>
 </html>
