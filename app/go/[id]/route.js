@@ -1,20 +1,15 @@
 import { NextResponse } from 'next/server';
 
-// Server-side dynamic behavior forced
-export const dynamic = 'force-dynamic';
-
 const targetUrls = {
-  doc1: 'https://d.urlxx342.com/?utm_source=Raees&utm_medium=SK',
+  doc1: 'https://al.urlvid123.com/?utm_source=Raees&utm_medium=SK',
   doc2: 'https://docs.google.com/document/d/YOUR_DOC_ID_2/edit',
-  link1: 'https://d.urlxx342.com/?utm_source=Raees&utm_medium=SK',
+  link1: 'https://al.urlvid123.com/?utm_source=Raees&utm_medium=SK',
 };
 
 export async function GET(request, { params }) {
-  // Dynamic Route Parameters await karein
   const { id } = await params;
   const destination = targetUrls[id];
 
-  // Agar ID match na ho toh root domain par bhej dein
   if (!destination) {
     return NextResponse.redirect(new URL('/', request.url), 307);
   }
@@ -22,10 +17,12 @@ export async function GET(request, { params }) {
   const finalUrl = new URL(destination);
   const incomingUrl = new URL(request.url);
 
-  // Incoming UTM parameters copy aur append karein
+  // Sirf UTM parameters forward honge
   incomingUrl.searchParams.forEach((value, key) => {
-    finalUrl.searchParams.set(key, value);
+    if (key.startsWith('utm_')) {
+      finalUrl.searchParams.set(key, value);
+    }
   });
 
-  return NextResponse.redirect(finalUrl.toString(), 307);
+  return NextResponse.redirect(finalUrl, 307);
 }
